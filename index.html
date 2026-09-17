@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Masterclass: SAP Joule Agentic AI, BTP, CAPM & Fiori</title>
+    <title>Online Training: SAP Joule Agentic AI, BTP, CAPM & Fiori</title>
     <style>
         :root {
             --sap-blue: #0A66C2;
@@ -108,12 +108,12 @@
 
         .main-layout {
             display: grid;
-            grid-template-columns: 1fr 1.1fr;
+            grid-template-columns: 1fr 1.25fr;
             gap: 20px;
             padding: 24px;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             .main-layout {
                 grid-template-columns: 1fr;
             }
@@ -160,7 +160,7 @@
             color: var(--sap-blue);
             text-align: center;
             flex: 1;
-            min-width: 140px;
+            min-width: 130px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
@@ -181,7 +181,7 @@
         .checkmark-list li {
             position: relative;
             padding-left: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             font-size: 0.95rem;
             line-height: 1.4;
             color: #334155;
@@ -202,17 +202,47 @@
             font-size: 1rem;
         }
 
+        .scrollable-syllabus {
+            max-height: 520px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-bottom: 15px;
+        }
+
+        .scrollable-syllabus::-webkit-scrollbar {
+            width: 6px;
+        }
+        .scrollable-syllabus::-webkit-scrollbar-track {
+            background: #E2E8F0;
+            border-radius: 4px;
+        }
+        .scrollable-syllabus::-webkit-scrollbar-thumb {
+            background: #94A3B8;
+            border-radius: 4px;
+        }
+
+        .syllabus-module {
+            margin-bottom: 20px;
+            background: #ffffff;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .syllabus-module h3 {
+            font-size: 1.05rem;
+            color: var(--dark-navy);
+            margin-bottom: 8px;
+            font-weight: 800;
+            border-bottom: 1px solid #E2E8F0;
+            padding-bottom: 4px;
+        }
+
         .pricing-subgrid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-bottom: 16px;
-        }
-
-        @media (max-width: 550px) {
-            .pricing-subgrid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .price-box {
@@ -241,45 +271,25 @@
             color: #64748B;
         }
 
-        .action-row {
+        .btn-full-width {
             display: flex;
-            gap: 12px;
-            margin-top: auto;
-        }
-
-        .btn {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 20px;
-            font-size: 0.95rem;
+            padding: 14px;
+            font-size: 1rem;
             font-weight: 700;
             text-decoration: none;
             border-radius: 8px;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            flex: 1;
-            text-align: center;
-        }
-
-        .btn-primary {
             background-color: var(--sap-blue);
             color: white;
             border: none;
+            transition: background 0.2s ease;
+            cursor: pointer;
+            text-align: center;
         }
 
-        .btn-primary:hover {
+        .btn-full-width:hover {
             background-color: #08529c;
-        }
-
-        .btn-secondary {
-            background-color: #ffffff;
-            color: var(--dark-navy);
-            border: 2px solid var(--dark-navy);
-        }
-
-        .btn-secondary:hover {
-            background-color: #f1f5f9;
         }
 
         footer {
@@ -287,7 +297,6 @@
             color: #ffffff;
             padding: 16px 20px;
             text-align: center;
-            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         footer .cta-heading {
@@ -295,7 +304,6 @@
             font-weight: 700;
             margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.2px;
         }
 
         .contact-matrix {
@@ -326,9 +334,9 @@
 <body>
     <div class="wrapper">
         
-        <!-- Hero Header -->
+        <!-- Hero Header Area -->
         <header>
-            <span class="live-badge">Online Live Training</span>
+            <span class="live-badge">Online Live Masterclass</span>
             <h1>ONLINE TRAINING: SAP JOULE AGENTIC AI, BTP & CAPM</h1>
             <div class="topics-ribbon">
                 <span class="topic-pill">SAP Joule</span>
@@ -342,13 +350,13 @@
             </div>
         </header>
 
-        <!-- Meta Schedule Strip -->
+        <!-- Dynamic Parameter Ribbon Row -->
         <div class="batch-bar">
-            <span>📚 Training Type: <strong>Real-Time & Job Oriented</strong></span>
-            <span>⏱ Total Program: <strong>45 Hours Matrix</strong></span>
+            <span>📊 Training Type: <strong>Real-Time & Job Oriented</strong></span>
+            <span>⏱ Program Length: <strong>45 Hours Comprehensive Matrix</strong></span>
         </div>
 
-        <!-- Main Content 2-Column Matrix Layout -->
+        <!-- Main Dashboard Workspace -->
         <div class="main-layout">
             
             <!-- Left Side Column Group -->
@@ -361,7 +369,7 @@
                         <div class="stat-badge">4000+ Students Trained</div>
                     </div>
                     <p class="instructor-bio">
-                        Led by <strong>Bobby</strong>, an active Senior Consultant at a top MNC. Every technical concept is dictated directly into interactive student notes along with official production materials.
+                        Led by <strong>Bobby</strong>, a Senior Consultant actively working at a top MNC. Every technical element is dictated directly into targeted student class notes along with official production materials.
                     </p>
                 </div>
 
@@ -379,38 +387,98 @@
             <!-- Right Side Column Group -->
             <div class="column-group">
                 <div class="dashboard-card" style="height: 100%;">
-                    <h2>Core Core Curriculum Modules</h2>
-                    <ul class="checkmark-list">
-                        <li><strong>SAP Joule & Agentic AI:</strong> Joule Studio skills orchestration, custom intents, parameters, and custom AI actions.</li>
-                        <li><strong>SAP Document AI:</strong> Extraction workspace, instant learning models, custom schemas, and channel configurations.</li>
-                        <li><strong>Joule for Developers:</strong> Automated RAP/OData generation, unit testing, chat optimization, and predictive code completion.</li>
-                        <li><strong>SAP BTP Layering:</strong> Multitenant architectures, XSUAA application routing, AppRouter, and IAS setups.</li>
-                        <li><strong>CAPM Framework:</strong> Domain data modeling, event handling lifecycle hooks, custom logic, and UI annotations.</li>
-                    </ul>
+                    <h2>Total Comprehensive Course Syllabus</h2>
+                    
+                    <div class="scrollable-syllabus">
+                        
+                        <!-- Module 1 -->
+                        <div class="syllabus-module">
+                            <h3>🤖 SAP Joule & SAP Joule Agentic AI</h3>
+                            <ul class="checkmark-list">
+                                <li><strong>Introduction:</strong> What is SAP Joule & how it works.</li>
+                                <li><strong>Architecture:</strong> How Joule is built using SAP Build + Joule.</li>
+                                <li><strong>Setup Framework:</strong> Setting up SAP Build Code in your SAP BTP environments.</li>
+                                <li><strong>Development:</strong> Developing projects directly from the SAP Build Lobby.</li>
+                                <li><strong>Extensions:</strong> Developing a RAP Application utilizing SAP Joule integrations.</li>
+                                <li><strong>Skills Studio:</strong> Understanding Joule Skills & developing skills inside Joule Studio.</li>
+                                <li><strong>Orchestration:</strong> Custom Joule orchestrations & building custom Actions in SAP Build.</li>
+                                <li><strong>Agentic AI Projects:</strong> Creating custom skill projects explicitly for Agentic AI execution layers.</li>
+                                <li><strong>Parameters:</strong> Defining custom intents, parameter matching, and designing AI responses.</li>
+                                <li><strong>Backend:</strong> Connecting your live backend systems by creating an Action Project wrapper.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Module 2 -->
+                        <div class="syllabus-module">
+                            <h3>📄 SAP Document AI & Joule for Developers</h3>
+                            <ul class="checkmark-list">
+                                <li><strong>Document Workspace:</strong> Complete exploration of the SAP Document AI Workspace.</li>
+                                <li><strong>Client Orchestration:</strong> Viewing workspaces and creating custom document extraction clients.</li>
+                                <li><strong>Schemas:</strong> Creating and activating custom schemas for rapid data extraction.</li>
+                                <li><strong>Instant Learning:</strong> Training custom extraction models with Instant Learning engines.</li>
+                                <li><strong>Outbound Channels:</strong> Configuring outbound transmission channels.</li>
+                                <li><strong>Developer Joule Matrix:</strong> OData & RAP architecture generation, automated unit test generation, and CDS code explainers.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Module 3 -->
+                        <div class="syllabus-module">
+                            <h3>☁️ SAP BTP Core, Multitenancy & Security Frameworks</h3>
+                            <ul class="checkmark-list">
+                                <li><strong>BTP Core Layout:</strong> Global Account, Subaccounts, Directories, Tenants, and Cloud Foundry.</li>
+                                <li><strong>Marketplace:</strong> Provisioning instances and managing HTML5 applications in the Service Marketplace.</li>
+                                <li><strong>Multitenancy Architecture:</strong> Single-tenant vs. Multitenant application designs, business benefits, and tenant identification logic under the hood.</li>
+                                <li><strong>Identity Control:</strong> SAP ID service setups and SAP Cloud Identity Authentication Service (IAS).</li>
+                                <li><strong>BTP Security Layers:</strong> XSUAA integrations, Application Router configurations, OAuth protocols, and SAML mappings.</li>
+                            </ul>
+                        </div>
+                        <!-- Module 4 -->
+                        <div class="syllabus-module">
+                            <h3>🚀 Cloud Application Programming Model (CAPM)</h3>
+                            <ul class="checkmark-list">
+                                <li><strong>CDS Overview:</strong> Entities, Views, Associations, Aspects, Types, and service definitions.</li>
+                                <li><strong>Data Modeling:</strong> Postfix projections, path expressions, style casts, and best practices.</li>
+                                <li><strong>Capabilities:</strong> Auto-exclude, auto-expose, eTag validation, and CRUD constraint checks.</li>
+                                <li><strong>Database Layers:</strong> Seamlessly connecting code structures to standard SQL and Hana data layers in BTP.</li>
+                                <li><strong>Lifecycle Events:</strong> Implementing custom Before, After, and On event handling hooks.</li>
+                                <li><strong>Fiori UI Layout:</strong> Building List Reports, object page setups, draft processing, and custom UI annotations.</li>
+                                <li><strong>Access Control:</strong> Assigning Role Collections and handling authorizations using XSUAA.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Module 5 -->
+                        <div class="syllabus-module">
+                            <h3>🛠️ Node.js, JavaScript, HTML5 & DevOps Pipelines</h3>
+                            <ul class="checkmark-list">
+                                <li><strong>Node.js Foundation:</strong> Node modules, local argument parsing, file systems, and asynchronous call stacks.</li>
+                                <li><strong>JavaScript Core:</strong> Data types, arrows, arrays, promises, callback abstractions, and asynchronous await engines.</li>
+                                <li><strong>Fiori Work Zone:</strong> Launchpad designer, semantic object actions, technical roles, and customized themes.</li>
+                                <li><strong>Cloud Transport Management:</strong> Cloud-based transport execution and complex landscape layouts.</li>
+                                <li><strong>CI/CD Pipelines:</strong> Building automated pipelines for CAPM and Fiori via BAS & GitHub.</li>
+                                <li><strong>HTML5:</strong> Markup markup languages, structural paragraph tag elements, headings, lists, tables, and anchor links.</li>
+                            </ul>
+                        </div>
+
+                    </div> <!-- End of scrollable syllabus window -->
 
                     <h2>Investment Structure</h2>
                     <div class="pricing-subgrid">
                         <div class="price-box">
                             <h4>Live + Recording</h4>
                             <div class="amount">₹15,000 / $165</div>
-                            <div class="hours">40 - 45 Hours Course</div>
+                            <div class="hours">40 - 45 Hours Full Course</div>
                         </div>
                         <div class="price-box">
                             <h4>Recordings Only</h4>
                             <div class="amount">₹9,500 / $105</div>
-                            <div class="hours">45 Hours Vault</div>
+                            <div class="hours">45 Hours Vault Access</div>
                         </div>
                     </div>
                     
-                    <div class="action-row">
-                        <!-- Points to your uploaded ppt file in the repo -->
-                        <a href="course_details.pptx" class="btn btn-secondary" download>
-                            📥 Download Course PPT
-                        </a>
-                        <a href="https://youtu.be" target="_blank" class="btn btn-primary">
-                            📺 Watch Demo Video
-                        </a>
-                    </div>
+                    <!-- Direct Action Link Row (Download Completely Removed) -->
+                    <a href="https://youtu.be" target="_blank" class="btn-full-width">
+                        📺 Watch Live Demo Video on YouTube
+                    </a>
                 </div>
             </div>
             
