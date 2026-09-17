@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Masterclass: SAP Joule Agentic AI, BTP, CAPM & Fiori</title>
+    <style>
+        :root {
+            --sap-blue: #0A66C2;
+            --dark-navy: #001E3D;
+            --light-blue-bg: #F4F8FA;
+            --accent-orange: #FF6600;
+            --text-dark: #1E293B;
+            --success-green: #16A34A;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        html, body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #F0F4F8 0%, #E2E8F0 100%);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 1200px;
+            background-color: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: var(--dark-navy);
+            color: #ffffff;
+            text-align: center;
+            padding: 24px 20px;
+            border-bottom: 4px solid var(--sap-blue);
+        }
+
+        .live-badge {
+            background-color: var(--accent-orange);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 1.85rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .topics-ribbon {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .topic-pill {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #F1F5F9;
+            font-weight: 500;
+        }
+
+        .batch-bar {
+            background-color: #051424;
+            color: #ffffff;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            flex-wrap: wrap;
+        }
+
+        .batch-bar span strong {
+            color: #FF9955;
+        }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 20px;
+            padding: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .column-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .dashboard-card {
+            background: var(--light-blue-bg);
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dashboard-card h2 {
+            color: var(--dark-navy);
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #CBD5E1;
+        }
+
+        .instructor-header {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background: #ffffff;
+            border: 1px solid #CBD5E1;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--sap-blue);
+            text-align: center;
+            flex: 1;
+            min-width: 140px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .instructor-bio {
+            background-color: #ffffff;
+            border-left: 4px solid var(--sap-blue);
+            padding: 12px;
+            border-radius: 0 8px 8px 0;
+            color: #334155;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .checkmark-list {
+            list-style: none;
+        }
+
+        .checkmark-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #334155;
+        }
+
+        .checkmark-list li strong {
+            color: var(--dark-navy);
+            font-weight: 700;
+        }
+
+        .checkmark-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: var(--success-green);
+            font-weight: 900;
+            font-size: 1rem;
+        }
+
+        .pricing-subgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 550px) {
+            .pricing-subgrid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .price-box {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .price-box h4 {
+            font-size: 0.85rem;
+            color: #64748B;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .price-box .amount {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--sap-blue);
+        }
+
+        .price-box .hours {
+            font-size: 0.8rem;
+            color: #64748B;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--sap-blue);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #08529c;
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: var(--dark-navy);
+            border: 2px solid var(--dark-navy);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f1f5f9;
+        }
+
+        footer {
+            background-color: var(--accent-orange);
+            color: #ffffff;
+            padding: 16px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        footer .cta-heading {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+        }
+
+        .contact-matrix {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-matrix span {
+            background: rgba(0, 0, 0, 0.12);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .contact-matrix a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .contact-matrix a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <!-- Hero Header -->
+        <header>
+            <span class="live-badge">Online Live Training</span>
+            <h1>ONLINE TRAINING: SAP JOULE AGENTIC AI, BTP & CAPM</h1>
+            <div class="topics-ribbon">
+                <span class="topic-pill">SAP Joule</span>
+                <span class="topic-pill">Agentic AI</span>
+                <span class="topic-pill">SAP Build</span>
+                <span class="topic-pill">CAPM</span>
+                <span class="topic-pill">BTP</span>
+                <span class="topic-pill">Node.js</span>
+                <span class="topic-pill">JavaScript</span>
+                <span class="topic-pill">Fiori Elements</span>
+            </div>
+        </header>
+
+        <!-- Meta Schedule Strip -->
+        <div class="batch-bar">
+            <span>📚 Training Type: <strong>Real-Time & Job Oriented</strong></span>
+            <span>⏱ Total Program: <strong>45 Hours Matrix</strong></span>
+        </div>
+
+        <!-- Main Content 2-Column Matrix Layout -->
+        <div class="main-layout">
+            
+            <!-- Left Side Column Group -->
+            <div class="column-group">
+                <div class="dashboard-card">
+                    <h2>Faculty Expert Profile</h2>
+                    <div class="instructor-header">
+                        <div class="stat-badge">16 Years Real Experience</div>
+                        <div class="stat-badge">10 Years Online Training</div>
+                        <div class="stat-badge">4000+ Students Trained</div>
+                    </div>
+                    <p class="instructor-bio">
+                        Led by <strong>Bobby</strong>, an active Senior Consultant at a top MNC. Every technical concept is dictated directly into interactive student notes along with official production materials.
+                    </p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h2>Training Highlights & Perks</h2>
+                    <ul class="checkmark-list">
+                        <li><strong>Real-Time Projects:</strong> End-to-end sandbox builds in CAPM, Node.js, and Fiori Elements.</li>
+                        <li><strong>Extended Access:</strong> 12 Months of viewing access to all recorded classroom sessions.</li>
+                        <li><strong>Flexible Options:</strong> Easy financial onboarding split across two clean installments.</li>
+                        <li><strong>Interview Ready:</strong> Curated interview Q&As, study notes, and architectural diagrams.</li>
+                        <li><strong>Free Bonus:</strong> Complimentary ABAP and OOPs ABAP video recordings included.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Right Side Column Group -->
+            <div class="column-group">
+                <div class="dashboard-card" style="height: 100%;">
+                    <h2>Core Core Curriculum Modules</h2>
+                    <ul class="checkmark-list">
+                        <li><strong>SAP Joule & Agentic AI:</strong> Joule Studio skills orchestration, custom intents, parameters, and custom AI actions.</li>
+                        <li><strong>SAP Document AI:</strong> Extraction workspace, instant learning models, custom schemas, and channel configurations.</li>
+                        <li><strong>Joule for Developers:</strong> Automated RAP/OData generation, unit testing, chat optimization, and predictive code completion.</li>
+                        <li><strong>SAP BTP Layering:</strong> Multitenant architectures, XSUAA application routing, AppRouter, and IAS setups.</li>
+                        <li><strong>CAPM Framework:</strong> Domain data modeling, event handling lifecycle hooks, custom logic, and UI annotations.</li>
+                    </ul>
+
+                    <h2>Investment Structure</h2>
+                    <div class="pricing-subgrid">
+                        <div class="price-box">
+                            <h4>Live + Recording</h4>
+                            <div class="amount">₹15,000 / $165</div>
+                            <div class="hours">40 - 45 Hours Course</div>
+                        </div>
+                        <div class="price-box">
+                            <h4>Recordings Only</h4>
+                            <div class="amount">₹9,500 / $105</div>
+                            <div class="hours">45 Hours Vault</div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-row">
+                        <!-- Points to your uploaded ppt file in the repo -->
+                        <a href="course_details.pptx" class="btn btn-secondary" download>
+                            📥 Download Course PPT
+                        </a>
+                        <a href="https://youtu.be" target="_blank" class="btn btn-primary">
+                            📺 Watch Demo Video
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div> <!-- End of main-layout -->
+            
+        <footer>
+            <div class="cta-heading">Any Programming Knowledge & Freshers Welcome! Elevate Your Skill Matrix</div>
+            <div class="contact-matrix">
+                <span>💬 WhatsApp: <a href="https://wa.me">+91 8884473675</a></span>
+                <span>📧 Email: <a href="mailto:bobby.sapui5@gmail.com">bobby.sapui5@gmail.com</a></span>
+                <span>💼 LinkedIn: <a href="https://linkedin.com" target="_blank">Bobby Fiori</a></span>
+            </div>
+        </footer>
+
+    </div> <!-- End of wrapper -->
+
+</body>
+</html>
