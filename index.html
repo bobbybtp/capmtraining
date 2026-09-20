@@ -3,497 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Training: SAP Joule Agentic AI, BTP, CAPM & Fiori</title>
+    <title>Bobby SAP Training | Master Joule Agentic AI, BTP & CAPM</title>
     <style>
-        :root {
-            --sap-blue: #0A66C2;
-            --dark-navy: #001E3D;
-            --light-blue-bg: #F4F8FA;
-            --accent-orange: #FF6600;
-            --text-dark: #1E293B;
-            --success-green: #16A34A;
+        :root { 
+            --primary: #003366; 
+            --secondary: #ff6b21; 
+            --dark: #0f172a; 
+            --light: #f8fafc; 
+            --accent: #fffbeb; 
+            --success: #25D366;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        html, body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #F0F4F8 0%, #E2E8F0 100%);
-            color: var(--text-dark);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-        }
-
-        .wrapper {
-            width: 100%;
-            max-width: 1200px;
-            background-color: #ffffff;
-            border-radius: 14px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        header {
-            background-color: var(--dark-navy);
-            color: #ffffff;
-            text-align: center;
-            padding: 24px 20px;
-            border-bottom: 4px solid var(--sap-blue);
-        }
-
-        .live-badge {
-            background-color: var(--accent-orange);
-            color: white;
-            padding: 4px 14px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        header h1 {
-            font-size: 1.85rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-
-        .topics-ribbon {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .topic-pill {
-            background: rgba(255, 255, 255, 0.12);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: #F1F5F9;
-            font-weight: 500;
-        }
-
-        .batch-bar {
-            background-color: #051424;
-            color: #ffffff;
-            padding: 12px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            flex-wrap: wrap;
-        }
-
-        .batch-bar span strong {
-            color: #FF9955;
-        }
-
-        .main-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.25fr;
-            gap: 20px;
-            padding: 24px;
-        }
-
-        @media (max-width: 950px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .column-group {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .dashboard-card {
-            background: var(--light-blue-bg);
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .dashboard-card h2 {
-            color: var(--dark-navy);
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #CBD5E1;
-        }
-
-        .instructor-header {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-
-        .stat-badge {
-            background: #ffffff;
-            border: 1px solid #CBD5E1;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: var(--sap-blue);
-            text-align: center;
-            flex: 1;
-            min-width: 130px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        .instructor-bio {
-            background-color: #ffffff;
-            border-left: 4px solid var(--sap-blue);
-            padding: 12px;
-            border-radius: 0 8px 8px 0;
-            color: #334155;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .checkmark-list {
-            list-style: none;
-        }
-
-        .checkmark-list li {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            color: #334155;
-        }
-
-        .checkmark-list li strong {
-            color: var(--dark-navy);
-            font-weight: 700;
-        }
-
-        .checkmark-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            top: 1px;
-            color: var(--success-green);
-            font-weight: 900;
-            font-size: 1rem;
-        }
-
-        .scrollable-syllabus {
-            max-height: 520px;
-            overflow-y: auto;
-            padding-right: 10px;
-            margin-bottom: 15px;
-        }
-
-        .scrollable-syllabus::-webkit-scrollbar {
-            width: 6px;
-        }
-        .scrollable-syllabus::-webkit-scrollbar-track {
-            background: #E2E8F0;
-            border-radius: 4px;
-        }
-        .scrollable-syllabus::-webkit-scrollbar-thumb {
-            background: #94A3B8;
-            border-radius: 4px;
-        }
-
-        .syllabus-module {
-            margin-bottom: 20px;
-            background: #ffffff;
-            padding: 14px;
-            border-radius: 8px;
-            border: 1px solid #E2E8F0;
-        }
-
-        .syllabus-module h3 {
-            font-size: 1.05rem;
-            color: var(--dark-navy);
-            margin-bottom: 8px;
-            font-weight: 800;
-            border-bottom: 1px solid #E2E8F0;
-            padding-bottom: 4px;
-        }
-
-        .pricing-subgrid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .price-box {
-            background: #ffffff;
-            border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            padding: 12px;
-            text-align: center;
-        }
-
-        .price-box h4 {
-            font-size: 0.85rem;
-            color: #64748B;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .price-box .amount {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--sap-blue);
-        }
-
-        .price-box .hours {
-            font-size: 0.8rem;
-            color: #64748B;
-        }
-
-        .btn-full-width {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            background-color: var(--sap-blue);
-            color: white;
-            border: none;
-            transition: background 0.2s ease;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn-full-width:hover {
-            background-color: #08529c;
-        }
-
-        footer {
-            background-color: var(--accent-orange);
-            color: #ffffff;
-            padding: 16px 20px;
-            text-align: center;
-        }
-
-        footer .cta-heading {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .contact-matrix {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-matrix span {
-            background: rgba(0, 0, 0, 0.12);
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .contact-matrix a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-        
-        .contact-matrix a:hover {
-            text-decoration: underline;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--primary) 0%, #001f4d 100%); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--secondary); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header h1 { font-size: 32px; font-weight: 800; margin-bottom: 10px; letter-spacing: 0.5px; text-transform: uppercase; }
+        header p { font-size: 16px; color: #cbd5e1; max-width: 900px; margin: 0 auto 20px auto; }
+        .badge { background: var(--secondary); color: white; padding: 6px 18px; font-weight: 700; border-radius: 50px; display: inline-block; font-size: 13px; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255,107,33,0.3); }
+        .sticky-bar { background: #fff; padding: 12px 0; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .nav-links a { color: var(--primary); text-decoration: none; font-weight: 700; margin-right: 20px; font-size: 13px; text-transform: uppercase; }
+        .cta-btn { background: var(--secondary); color: white !important; padding: 8px 18px; border-radius: 4px; font-weight: 700; text-decoration: none; display: inline-block; transition: background 0.2s; border: none; cursor: pointer; text-align: center; }
+        .cta-btn:hover { opacity: 0.9; }
+        .main-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin: 30px auto; }
+        .section { background: white; padding: 30px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .section h2 { color: var(--primary); font-size: 22px; border-left: 5px solid var(--primary); padding-left: 12px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .syllabus-block { margin-bottom: 25px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 20px; }
+        .syllabus-block:last-child { border-bottom: none; padding-bottom: 0; }
+        .syllabus-block h3 { font-size: 16px; color: var(--secondary); margin-bottom: 12px; font-weight: 700; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+        .syllabus-subgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .subgrid-column { background: var(--light); padding: 15px; border-radius: 6px; border: 1px solid #f1f5f9; }
+        .subgrid-column h4 { font-size: 14px; color: var(--primary); margin-bottom: 10px; font-weight: 700; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; text-transform: uppercase; }
+        ul { list-style: none; }
+        ul li { font-size: 13.5px; margin-bottom: 8px; color: #334155; padding-left: 18px; position: relative; line-height: 1.4; }
+        ul li::before { content: "✔"; position: absolute; left: 0; top: 1px; color: var(--secondary); font-weight: bold; }
+        .sidebar-card { background: white; border: 1px solid #e2e8f0; padding: 22px; border-radius: 8px; position: sticky; top: 85px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 25px; }
+        .sidebar-card h3 { font-size: 16px; color: var(--primary); margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; font-weight: 700; }
+        .price-row { background: var(--light); border-left: 4px solid var(--secondary); padding: 10px; margin-bottom: 10px; border-radius: 0 4px 4px 0; }
+        .price-title { font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 700; }
+        .price-val { font-size: 17px; font-weight: 800; color: var(--secondary); }
+        .bonus-box { background: var(--accent); border: 1px solid #fde68a; padding: 18px; border-radius: 6px; margin-top: 15px; }
+        .bonus-box h3 { color: #b45309; font-size: 15px; margin-bottom: 8px; font-weight: 700; border: none; padding: 0; }
+        .bonus-item { font-size: 13px; color: #78350f; margin-bottom: 6px; line-height: 1.4; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 15px; border-radius: 6px; border: 1px solid #e2e8f0; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 35px 20px; font-size: 13.5px; border-top: 4px solid var(--primary); }
+        footer p { margin-bottom: 5px; }
+        @media(max-width: 992px) { .main-layout { grid-template-columns: 1fr; } .syllabus-subgrid { grid-template-columns: 1fr; } .sidebar-card { position: relative; top: 0; } }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        
-        <!-- Hero Header Area -->
-        <header>
-            <span class="live-badge">Online Live Masterclass</span>
-            <h1>ONLINE TRAINING: SAP JOULE AGENTIC AI, BTP & CAPM</h1>
-            <div class="topics-ribbon">
-                <span class="topic-pill">SAP Joule</span>
-                <span class="topic-pill">Agentic AI</span>
-                <span class="topic-pill">SAP Build</span>
-                <span class="topic-pill">CAPM</span>
-                <span class="topic-pill">BTP</span>
-                <span class="topic-pill">Node.js</span>
-                <span class="topic-pill">JavaScript</span>
-                <span class="topic-pill">Fiori Elements</span>
-            </div>
-        </header>
-
-        <!-- Dynamic Parameter Ribbon Row -->
-        <div class="batch-bar">
-            <span>📊 Training Type: <strong>Real-Time & Job Oriented</strong></span>
-            <span>⏱ Program Length: <strong>45 Hours Comprehensive Matrix</strong></span>
+    <header>
+        <div class="container">
+            <span class="badge">Real-Time Oriented Training • New Batches Enrolling</span>
+            <h1 style="margin-top: 12px;">Master SAP Joule Agentic AI, BTP & CAPM</h1>
+            <p>Transform your cloud engineering career under active MNC guidance. 45 hours of high-density technical drill-downs with live practical exercises every single Friday.</p>
+            <a href="https://google.com" class="cta-btn" target="_blank" style="padding: 10px 30px; font-size: 15px;">Click Here to Register Now</a>
         </div>
+    </header>
 
-        <!-- Main Dashboard Workspace -->
-        <div class="main-layout">
-            
-            <!-- Left Side Column Group -->
-            <div class="column-group">
-                <div class="dashboard-card">
-                    <h2>Faculty Expert Profile</h2>
-                    <div class="instructor-header">
-                        <div class="stat-badge">16 Years Real Experience</div>
-                        <div class="stat-badge">10 Years Online Training</div>
-                        <div class="stat-badge">4000+ Students Trained</div>
-                    </div>
-                    <p class="instructor-bio">
-                        Led by <strong>Bobby</strong>, a Senior Consultant actively working at a top MNC. Every technical element is dictated directly into targeted student class notes along with official production materials.
-                    </p>
-                </div>
-
-                <div class="dashboard-card">
-                    <h2>Training Highlights & Perks</h2>
-                    <ul class="checkmark-list">
-                        <li><strong>Real-Time Projects:</strong> End-to-end sandbox builds in CAPM, Node.js, and Fiori Elements.</li>
-                        <li><strong>Extended Access:</strong> 12 Months of viewing access to all recorded classroom sessions.</li>
-                        <li><strong>Flexible Options:</strong> Easy financial onboarding split across two clean installments.</li>
-                        <li><strong>Interview Ready:</strong> Curated interview Q&As, study notes, and architectural diagrams.</li>
-                        <li><strong>Free Bonus:</strong> Complimentary ABAP and OOPs ABAP video recordings included.</li>
-                    </ul>
-                </div>
+    <div class="sticky-bar">
+        <div class="container nav-flex">
+            <div class="nav-links">
+                <a href="#curriculum">Complete Curriculum</a>
+                <a href="#demo-video">Free Demo Class</a>
             </div>
-            <!-- Right Side Column Group -->
-            <div class="column-group">
-                <div class="dashboard-card" style="height: 100%;">
-                    <h2>Total Comprehensive Course Syllabus</h2>
-                    
-                    <div class="scrollable-syllabus">
-                        
-                        <!-- Module 1 -->
-                        <div class="syllabus-module">
-                            <h3>🤖 SAP Joule & SAP Joule Agentic AI</h3>
-                            <ul class="checkmark-list">
-                                <li><strong>Introduction:</strong> What is SAP Joule & how it works.</li>
-                                <li><strong>Architecture:</strong> How Joule is built using SAP Build + Joule.</li>
-                                <li><strong>Setup Framework:</strong> Setting up SAP Build Code in your SAP BTP environments.</li>
-                                <li><strong>Development:</strong> Developing projects directly from the SAP Build Lobby.</li>
-                                <li><strong>Extensions:</strong> Developing a RAP Application utilizing SAP Joule integrations.</li>
-                                <li><strong>Skills Studio:</strong> Understanding Joule Skills & developing skills inside Joule Studio.</li>
-                                <li><strong>Orchestration:</strong> Custom Joule orchestrations & building custom Actions in SAP Build.</li>
-                                <li><strong>Agentic AI Projects:</strong> Creating custom skill projects explicitly for Agentic AI execution layers.</li>
-                                <li><strong>Parameters:</strong> Defining custom intents, parameter matching, and designing AI responses.</li>
-                                <li><strong>Backend:</strong> Connecting your live backend systems by creating an Action Project wrapper.</li>
+            <a href="https://wa.me" class="cta-btn" target="_blank" style="background: var(--success);">💬 Open WhatsApp Chat</a>
+        </div>
+    </div>
+
+    <div class="container main-layout">
+        <div class="left-content">
+            <div class="section" id="curriculum">
+                <h2 style="margin-bottom: 25px;">📋 Entire Course Syllabus Curriculum (45 Hours)</h2>
+                
+                <!-- MODULE 1 -->
+                <div class="syllabus-block">
+                    <h3>🚀 Module 1: SAP Joule & SAP Joule Agentic AI</h3>
+                    <div class="syllabus-subgrid">
+                        <div class="subgrid-column">
+                            <h4>SAP Joule Setup & Build Integration</h4>
+                            <ul>
+                                <li>What is SAP JOULE and its role in enterprise cloud landscapes</li>
+                                <li>How is this built? (SAP Build + Joule integration orchestration setup)</li>
+                                <li>Setting up and installing SAP BUILD Code inside SAP Business Technology Platform (BTP)</li>
+                                <li>Developing end-to-end projects from scratch inside the SAP BUILD LOBBY</li>
+                                <li>Developing a functional RAP Application integrated natively with SAP JOULE</li>
                             </ul>
                         </div>
-
-                        <!-- Module 2 -->
-                        <div class="syllabus-module">
-                            <h3>📄 SAP Document AI & Joule for Developers</h3>
-                            <ul class="checkmark-list">
-                                <li><strong>Document Workspace:</strong> Complete exploration of the SAP Document AI Workspace.</li>
-                                <li><strong>Client Orchestration:</strong> Viewing workspaces and creating custom document extraction clients.</li>
-                                <li><strong>Schemas:</strong> Creating and activating custom schemas for rapid data extraction.</li>
-                                <li><strong>Instant Learning:</strong> Training custom extraction models with Instant Learning engines.</li>
-                                <li><strong>Outbound Channels:</strong> Configuring outbound transmission channels.</li>
-                                <li><strong>Developer Joule Matrix:</strong> OData & RAP architecture generation, automated unit test generation, and CDS code explainers.</li>
+                        <div class="subgrid-column">
+                            <h4>Joule Custom Skills & Agentic AI</h4>
+                            <ul>
+                                <li>What is a Joule Skill and developing custom Joule Skills inside Joule Studio</li>
+                                <li>Managing comprehensive Joule orchestration architectures</li>
+                                <li>Creating executable Actions in SAP Build and configuring standard Joule Skills</li>
+                                <li>Launching the Joule assistant interface and validating targeted Skills testing</li>
+                                <li>Creating custom Joule projects explicitly designed for Agentic AI setups</li>
+                                <li>Define Intent and Add Parameters for custom agent projects</li>
+                                <li>Configure Actions, Design Responses, Test and Release for Agent AI pipelines</li>
+                                <li>Connect Your Backend systems directly by creating an Action Project wrapper</li>
                             </ul>
-                        </div>
-
-                        <!-- Module 3 -->
-                        <div class="syllabus-module">
-                            <h3>☁️ SAP BTP Core, Multitenancy & Security Frameworks</h3>
-                            <ul class="checkmark-list">
-                                <li><strong>BTP Core Layout:</strong> Global Account, Subaccounts, Directories, Tenants, and Cloud Foundry.</li>
-                                <li><strong>Marketplace:</strong> Provisioning instances and managing HTML5 applications in the Service Marketplace.</li>
-                                <li><strong>Multitenancy Architecture:</strong> Single-tenant vs. Multitenant application designs, business benefits, and tenant identification logic under the hood.</li>
-                                <li><strong>Identity Control:</strong> SAP ID service setups and SAP Cloud Identity Authentication Service (IAS).</li>
-                                <li><strong>BTP Security Layers:</strong> XSUAA integrations, Application Router configurations, OAuth protocols, and SAML mappings.</li>
-                            </ul>
-                        </div>
-                        <!-- Module 4 -->
-                        <div class="syllabus-module">
-                            <h3>🚀 Cloud Application Programming Model (CAPM)</h3>
-                            <ul class="checkmark-list">
-                                <li><strong>CDS Overview:</strong> Entities, Views, Associations, Aspects, Types, and service definitions.</li>
-                                <li><strong>Data Modeling:</strong> Postfix projections, path expressions, style casts, and best practices.</li>
-                                <li><strong>Capabilities:</strong> Auto-exclude, auto-expose, eTag validation, and CRUD constraint checks.</li>
-                                <li><strong>Database Layers:</strong> Seamlessly connecting code structures to standard SQL and Hana data layers in BTP.</li>
-                                <li><strong>Lifecycle Events:</strong> Implementing custom Before, After, and On event handling hooks.</li>
-                                <li><strong>Fiori UI Layout:</strong> Building List Reports, object page setups, draft processing, and custom UI annotations.</li>
-                                <li><strong>Access Control:</strong> Assigning Role Collections and handling authorizations using XSUAA.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Module 5 -->
-                        <div class="syllabus-module">
-                            <h3>🛠️ Node.js, JavaScript, HTML5 & DevOps Pipelines</h3>
-                            <ul class="checkmark-list">
-                                <li><strong>Node.js Foundation:</strong> Node modules, local argument parsing, file systems, and asynchronous call stacks.</li>
-                                <li><strong>JavaScript Core:</strong> Data types, arrows, arrays, promises, callback abstractions, and asynchronous await engines.</li>
-                                <li><strong>Fiori Work Zone:</strong> Launchpad designer, semantic object actions, technical roles, and customized themes.</li>
-                                <li><strong>Cloud Transport Management:</strong> Cloud-based transport execution and complex landscape layouts.</li>
-                                <li><strong>CI/CD Pipelines:</strong> Building automated pipelines for CAPM and Fiori via BAS & GitHub.</li>
-                                <li><strong>HTML5:</strong> Markup markup languages, structural paragraph tag elements, headings, lists, tables, and anchor links.</li>
-                            </ul>
-                        </div>
-
-                    </div> <!-- End of scrollable syllabus window -->
-
-                    <h2>Investment Structure</h2>
-                    <div class="pricing-subgrid">
-                        <div class="price-box">
-                            <h4>Live + Recording</h4>
-                            <div class="amount">₹15,000 / $165</div>
-                            <div class="hours">40 - 45 Hours Full Course</div>
-                        </div>
-                        <div class="price-box">
-                            <h4>Recordings Only</h4>
-                            <div class="amount">₹9,500 / $105</div>
-                            <div class="hours">45 Hours Vault Access</div>
                         </div>
                     </div>
-                    
-                    <!-- Direct Action Link Row (Download Completely Removed) -->
-                    <a href="https://youtu.be" target="_blank" class="btn-full-width">
-                        📺 Watch Live Demo Video on YouTube
-                    </a>
+                </div>
+
+                <!-- MODULE 2 -->
+                <div class="syllabus-block">
+                    <h3>📄 Module 2: SAP Document AI Workspace</h3>
+                    <div class="syllabus-subgrid">
+                        <div class="subgrid-column">
+                            <h4>Workspace Management</h4>
+                            <ul>
+                                <li>Introduction to SAP Document AI capabilities and cloud architecture</li>
+                                <li>Explore the SAP Document AI Workspace dashboard landscape elements</li>
+                                <li>View Workspace structures and Create a functional extraction Client layer</li>
+                            </ul>
+                        </div>
+                        <div class="subgrid-column">
+                            <h4>Schema Engineering & Model Training</h4>
+                            <ul>
+                                <li>Create and Activate a designated Schema for structural Document Extraction</li>
+                                <li>Managing complex corporate Document AI Schemas mapping text variations</li>
+                                <li>Train the core data extractor model via integrated Instant Learning engines</li>
+                                <li>Configure Outbound Channels to stream data output fields smoothly to systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- MODULE 3 -->
+                <div class="syllabus-block">
+                    <h3>💻 Module 3: Joule For Developers Workspace</h3>
+                    <div class="syllabus-subgrid">
+                        <div class="subgrid-column">
+                            <h4>ABAP & Architecture Generation</h4>
+                            <ul>
+                                <li>What is Joule for Developers and installation setup parameters</li>
+                                <li>JOULE configuration pathways optimized specifically for ABAP Developers</li>
+                                <li>OData & RAP Architecture Generation automation routines via natural language</li>
+                            </ul>
+                        </div>
+                        <div class="subgrid-column">
+                            <h4>AI-Assisted Engineering</h4>
+                            <ul>
+                                <li>Automated Unit Test Generation shielding enterprise production systems</li>
+                                <li>ABAP and CDS Explain modules parsing database logic tables</li>
+                                <li>Interacting with the real-time Joule Developer Chat user interface</li>
+                                <li>Predictive Code Completion configurations inside developer frameworks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE 4 -->
+                <div class="syllabus-block">
+                    <h3>☁️ Module 4: SAP BTP Core Layout, Multitenancy & Access Security</h3>
+                    <div class="syllabus-subgrid">
+                        <div class="subgrid-column">
+                            <h4>BTP Foundation & Multitenancy</h4>
+                            <ul>
+                                <li>BTP Overview: Global Account, Subaccount, and Directory topology</li>
+                                <li>Managing Subaccount Tenants and Cloud Foundry environments in BTP</li>
+                                <li>Provisioning via Service Marketplace, Instances, and Subscriptions</li>
+                                <li>Deploying HTML5 Applications and establishing platform Connectivity layers</li>
+                                <li>What is Multitenancy in BTP: Single-Tenant vs. Multitenant cloud applications</li>
+                                <li>Real-world multitenancy structural analogies, operational benefits, and costs</li>
+                                <li>BTP architectural components and services required to run a Multitenant App</li>
+                                <li>Tenant Identification logic and dynamic isolation mapping by Multitenant Apps</li>
+                            </ul>
+                        </div>
+                        <div class="subgrid-column">
+                            <h4>BTP Security & Access Management</h4>
+                            <ul>
+                                <li>Overview of end-to-end cloud platform Security architectures in BTP</li>
+                                <li>Identity Providers in BTP: Managing the core SAP ID Service configurations</li>
+                                <li>Setting up SAP Cloud Identity Authentication Service (IAS) instances</li>
+                                <li>What is XSUAA and App Router in BTP (User authentication routing control)</li>
+                                <li>Deep dive into security authorization protocols: OAuth 2.0 and SAML 2.0</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- MODULE 5 -->
+                <div class="syllabus-block">
+                    <h3>🚀 Module 5: Cloud Application Programming Model (CAPM)</h3>
+                    <div class="syllabus-subgrid">
+                        <div class="subgrid-column">
+                            <h4>CDS Core Data Modeling</h4>
+                            <ul>
+                                <li>Core Data Services (CDS) Overview: Entities, Views, Associations, Aspects, Types</li>
+                                <li>Design principles in CAPM and how it brings value to enterprise delivery</li>
+                                <li>How Does CAPM Simplify Development paths across complex landscapes</li>
+                                <li>The Golden Path framework: Key qualities and architecture benefits in CAPM</li>
+                                <li>Data Modeling: Service Definitions, Postfix Projections, Path Expressions</li>
+                                <li>Style Casts and utilizing the Excluding Clause in CAPM modeling tasks</li>
+                                <li>Domain Modeling best practices, Naming Conventions, and using Namespaces</li>
+                                <li>Reuse Models in CAPM: Common aspects, Managed aspects, and Temporal aspects</li>
+                                <li>Generic Capabilities: Auto-exclude, Auto-expose, eTag, and CRUD constraint checks</li>
+                                <li>Field Validations and connecting code structures to SQL/Hana databases</li>
+                                <li>ODATA in CAPM: Domain Model, Persistence Models, Services, and Consumers</li>
+                                <li>RESTful APIs and SAP Fiori UI integration inside CAPM frameworks</li>
+                            </ul>
+                        </div>
+                        <div class="subgrid-column">
+                            <h4>Event Handling & Fiori Elements UI</h4>
+                            <ul>
+                                <li>Fiori Elements, UI Annotations, Filtering, CRUD Operations, and Draft entities</li>
+                                <li>Localizations, Internationalization, and Localized data operations under the hood</li>
+                                <li>Develop List Report Object Page Applications and implement CRUD via UI Annotations</li>
+                                <li>Authorizations and Authentication (XSUAA) security role collection assignment</li>
+                                <li>Security Model mapping: Restrict, Requires, and Predefined Roles in CAPM</li>
+                                <li>Event Handling lifecycle: Implementing Before, After, and On custom handlers</li>
+                                <li>Querying APIs, Messaging APIs, and structural runtime API constructions</li>
+                                <li>Managing Request Objects and registering backend Event Handlers cleanly</li>
+                                <li>CDS APIs: Execute INSERT, UPDATE, and DELETE operations via CDS Query Language</li>
+                                <li>Implementing custom Functions, Actions, and debugging UI applications in CAPM</li>
+                                <li>Develop a CAPM Project by Consuming ODATA Services from SAP S/4HANA On-Premise systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULE 6 (SUPPLEMENTAL DETAILS FROM SOURCE DOCUMENTATION) -->
+                <div class="syllabus-block">
+                    <h3>🛠️ Module 6: Full-Stack Foundations & DevOps Pipelines</h3>
+                    <div class="syllabus-subgrid">
+                        <div class="subgrid-column">
+                            <h4>Node.js Foundations & DevOps</h4>
+                            <ul>
+                                <li>Node.js Module System: Local file system loops, JSON storage, and argument parsing</li>
+                                <li>Asynchronous runtime architecture: Call Stack, Call Queue, and the Event Loop</li>
+                                <li>Debugging: Console logs, Node Debugger tools, and error catching routines</li>
+                                <li>SAP Cloud Transport Management in BTP: Transporting various content to environments</li>
+                                <li>Continuous Integration & Delivery (CI/CD) pipelines configuration for CAPM/Fiori</li>
+                                <li>Integrating Business Application Studio (BAS) with external GitHub repositories</li>
+                            </ul>
+                        </div>
+                        <div class="subgrid-column">
+                            <h4>JavaScript & Fiori Layouts</h4>
+                            <ul>
+                                <li>JS Core: Data types, loops, nested loops, constants, arrows, and object parsing</li>
+                                <li>Asynchronous pipelines: Callback patterns, promises, and Async/Await engines</li>
+                                <li>HTML5 Core: Elements, Tags, headers, breaks, tables, and anchor links</li>
+                                <li>SAP Fiori Architecture: Strategy, manifest bindings, and launchpad profiles</li>
+                                <li>Launchpad Designer: Semantic Objects, Actions, Tile setups, and PFCG Roles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End of Left Content Section -->
+
+            <!-- Free Live Demo Class Streaming Frame Component -->
+            <div class="section" id="demo-video">
+                <h2>📺 Watch Free Introductory Demo Class</h2>
+                <div class="video-wrapper">
+                    <!-- Updated with your designated streaming address identifier -->
+                    <iframe src="https://youtube.com" title="SAP RESTful Application Programming Model Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div style="text-align: center; margin-top: 15px; background: #fffdfa; padding: 12px; border-radius: 4px; border: 1px dashed var(--secondary);">
+                    <p style="font-size: 14px; font-weight: bold; color: var(--dark);">👉 Having trouble viewing the video player container above?</p>
+                    <a href="https://youtu.be" target="_blank" style="color: var(--secondary); font-weight: 800; text-decoration: underline; font-size: 15px; display: inline-block; margin-top: 5px;">Click Here to Watch Directly on YouTube!</a>
                 </div>
             </div>
-            
-        </div> <!-- End of main-layout -->
-            
-        <footer>
-            <div class="cta-heading">Any Programming Knowledge & Freshers Welcome! Elevate Your Skill Matrix</div>
-            <div class="contact-matrix">
-                <span>💬 WhatsApp: <a href="https://wa.me">+91 8884473675</a></span>
-                <span>📧 Email: <a href="mailto:bobby.sapui5@gmail.com">bobby.sapui5@gmail.com</a></span>
-                <span>💼 LinkedIn: <a href="https://linkedin.com" target="_blank">Bobby Fiori</a></span>
+        </div> <!-- End of Left Content Column -->
+
+        <!-- Right Sidebar Content Column -->
+        <div class="right-sidebar">
+            <div class="sidebar-card">
+                <h3>💰 Course Fees & Tracks</h3>
+                <div class="price-row">
+                    <div class="price-title">Live Classes + 12-Month Access Server Backups</div>
+                    <div class="price-val">₹15,000 / $165</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">⏱ Duration: 40 - 45 Hours Course</div>
+                </div>
+                <div class="price-row" style="margin-top: 12px;">
+                    <div class="price-title">Recorded Playbacks Vault Server Only</div>
+                    <div class="price-val">₹9,500 / $105</div>
+                    <div style="font-size: 11px; color: #64748b; margin-top: 2px;">⏱ Duration: 45 Hours Full Track</div>
+                </div>
+                
+                <a href="https://google.com" class="cta-btn" target="_blank" style="display:block; text-align:center; margin-top:15px; padding:12px; width:100%;">📝 Fill Enrollment Form</a>
+                
+                <div class="bonus-box">
+                    <h3>🎁 Program Value Highlights Included:</h3>
+                    <div class="bonus-item">Real-Time Project Development in CAPM/Node.js after completion.</div>
+                    <div class="bonus-item">Recording Sessions with View Access for a full 12 Months.</div>
+                    <div class="bonus-item">Payments can be completed cleanly across two convenient installments.</div>
+                    <div class="bonus-item">Comprehensive study materials, class notes, and structured diagrams provided.</div>
+                    <li>Exercises on Every Friday based on the topics covered on that week.</li>
+                    <div class="bonus-item">FREE ABAP and OOPS ABAP recording video bundles provided.</div>
+                </div>
             </div>
-        </footer>
 
-    </div> <!-- End of wrapper -->
-
-</body>
-</html>
+            <div class="sidebar-card">
+                <h3>👨‍🏫 About Your Instructor</h3>
+                <p style="font-size: 13.5px; margin-bottom: 12px; color: #475569;">
+                    <strong>Bobby</strong> is an active Senior Consultant at a leading MNC specializing actively in SAP Joule, Agentic AI architectures, BTP cloud instances, and CAPM development patterns.
+                </p>
+                <ul class="checkmark-list" style="margin-left: 0;">
+                    <li style="font-size:13px; margin-bottom:6px; padding-left: 18px;">16+ Years Corporate Industry Footprint</li>
+                    <li style="font-size:13px; margin-bottom:6px; padding-left: 18px;">🎓 4000+ Global Professionals Trained</li>
+                    <li style="font-size:13px; margin-bottom:6px; padding-left: 18px;">📊 10+ Years Dedicated Training History</li>
+                </ul>
+<a href="https://linkedin.com" target="_blank" style="color: var(--secondary); font-size: 13px; font-weight: bold; display: block; text-align: center; text-decoration: none; border: 1px solid var(--secondary); padding: 6px; border-radius: 4px; margin-top:12px;">🔗 Read My LinkedIn Recommendations</a>
+            </div>
+        </div> <!-- End of Right Sidebar Column -->
